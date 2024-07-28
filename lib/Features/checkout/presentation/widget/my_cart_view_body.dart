@@ -15,8 +15,10 @@ class my_cart_view_body extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          Image(
-            image: AssetImage('assets/images/basket.png'),
+          Expanded(
+            child: Image(
+              image: AssetImage('assets/images/basket.png'),
+            ),
           ),
           SizedBox(
             height: 25,
@@ -46,6 +48,9 @@ class my_cart_view_body extends StatelessWidget {
           ),
           CustomBottom(
             title: 'Complete Payment',
+          ),
+          SizedBox(
+            height: 15,
           ),
         ],
       ),
