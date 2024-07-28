@@ -11,17 +11,17 @@ class ListItemMethod extends StatefulWidget {
 }
 
 class _ListItemMethodState extends State<ListItemMethod> {
-  List<String> DataImage = [
+  List<String> dataImage = [
     'assets/images/card.svg',
     'assets/images/paypal.svg',
   ];
-  int ActiveIndex = 0;
+  int activeIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 62,
       child: ListView.builder(
-        itemCount: DataImage.length,
+        itemCount: dataImage.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Padding(
@@ -30,11 +30,11 @@ class _ListItemMethodState extends State<ListItemMethod> {
             ),
             child: GestureDetector(
               onTap: () {
-                ActiveIndex = index;
+                activeIndex = index;
                 setState(() {});
               },
               child: PaymentItem(
-                  isActive: ActiveIndex == index, image: DataImage[index]),
+                  isActive: activeIndex == index, image: dataImage[index]),
             ),
           );
         },
