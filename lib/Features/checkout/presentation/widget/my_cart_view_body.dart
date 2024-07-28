@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:payment_app/Features/checkout/presentation/widget/CustomBottom.dart';
+import 'package:payment_app/Features/checkout/presentation/views/PaymentDetails.dart';
+import 'package:payment_app/core/widget/CustomBottom.dart';
 import 'package:payment_app/Features/checkout/presentation/widget/OrderInfoItem.dart';
 import 'package:payment_app/Features/checkout/presentation/widget/TotalPrice.dart';
 
@@ -8,48 +9,55 @@ class my_cart_view_body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          Expanded(
+          const Expanded(
             child: Image(
               image: AssetImage('assets/images/basket.png'),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
-          OrderInfoItem(price: '\$42.97', title: 'Order Subtotal'),
-          SizedBox(
+          const OrderInfoItem(price: '\$42.97', title: 'Order Subtotal'),
+          const SizedBox(
             height: 3,
           ),
-          OrderInfoItem(price: '\$0', title: 'Discount'),
-          SizedBox(
+          const OrderInfoItem(price: '\$0', title: 'Discount'),
+          const SizedBox(
             height: 3,
           ),
-          OrderInfoItem(price: '\$8', title: 'Shipping'),
-          Divider(
+          const OrderInfoItem(price: '\$8', title: 'Shipping'),
+          const Divider(
             color: Color(0xFFC6C6C6),
             height: 30,
             indent: 15,
             endIndent: 15,
             thickness: 3,
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          TotalPrice(),
-          SizedBox(
+          const TotalPrice(),
+          const SizedBox(
             height: 16,
           ),
           CustomBottom(
             title: 'Complete Payment',
+            onTap: () {
+              // ScaffoldMessenger.of(context)
+              //     .showSnackBar(SnackBar(content: Text('data')));
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return PaymentDetails();
+              }));
+            },
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
         ],
