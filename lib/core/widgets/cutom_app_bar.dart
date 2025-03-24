@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:payment_app/core/utils/styles.dart';
 
-AppBar AppBarMethod({required String title, void Function()? onTap}) {
+AppBar buildAppBar({final String? title}) {
   return AppBar(
-    backgroundColor: Colors.transparent,
+    leading: Center(
+      child: SvgPicture.asset(
+        'assets/images/arrow.svg',
+      ),
+    ),
     elevation: 0,
+    backgroundColor: Colors.transparent,
     centerTitle: true,
-    leading: GestureDetector(
-        onTap: onTap,
-        child: Center(child: SvgPicture.asset('assets/images/Arrow.svg'))),
     title: Text(
+      title ?? '',
       textAlign: TextAlign.center,
-      title,
       style: Styles.style25,
     ),
   );
