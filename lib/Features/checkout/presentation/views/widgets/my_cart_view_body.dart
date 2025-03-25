@@ -77,19 +77,22 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16),
+    return Padding(
+      padding: const EdgeInsets.all(16),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          PaymentMethodsListView(),
-          SizedBox(
+          const PaymentMethodsListView(),
+          const SizedBox(
             height: 32,
           ),
-          CustomButton(text: 'Continue'),
+          CustomButton(
+            text: 'Continue',
+            onTap: () {},
+          ),
         ],
       ),
     );
