@@ -1,8 +1,12 @@
 import 'package:payment_app/Features/checkout/presentation/views/widgets/cart_info_item.dart';
-import 'package:payment_app/Features/checkout/presentation/views/widgets/payment_methods_list_view.dart';
+import 'package:payment_app/Features/checkout/presentation/views/widgets/payment_methods_bottom_sheet.dart';
 import 'package:payment_app/Features/checkout/presentation/views/widgets/total_price_widget.dart';
+import 'package:payment_app/core/stripe/cubit/payment_stripe_cubit.dart';
+import 'package:payment_app/core/stripe/repo/payment_stripe_repo.dart';
+import 'package:payment_app/core/stripe/stripe_service.dart';
 import 'package:payment_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
@@ -59,39 +63,17 @@ class MyCartViewBody extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16)),
                   builder: (context) {
-                    return const PaymentMethodsBottomSheet();
+                    return BlocProvider(
+                      create: (context) => PaymentStripeCubit(
+                        PaymentStripeRepo(),
+                      ),
+                      child: const PaymentMethodsBottomSheet(),
+                    );
                   });
             },
           ),
           const SizedBox(
             height: 12,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class PaymentMethodsBottomSheet extends StatelessWidget {
-  const PaymentMethodsBottomSheet({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const SizedBox(
-            height: 16,
-          ),
-          const PaymentMethodsListView(),
-          const SizedBox(
-            height: 32,
-          ),
-          CustomButton(
-            text: 'Continue',
-            onTap: () {},
           ),
         ],
       ),
