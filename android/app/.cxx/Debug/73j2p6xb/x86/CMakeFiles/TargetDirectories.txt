@@ -1,0 +1,2 @@
+C:/Users/IBRAHIM/Desktop/payment_app/android/app/.cxx/Debug/73j2p6xb/x86/CMakeFiles/edit_cache.dir
+C:/Users/IBRAHIM/Desktop/payment_app/android/app/.cxx/Debug/73j2p6xb/x86/CMakeFiles/rebuild_cache.dir
